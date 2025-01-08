@@ -1,0 +1,79 @@
+{
+  "users": [
+    {
+      "name": "test",
+      "password": "test1!",
+      "tags": "administrator"
+    }
+  ],
+  "vhosts": [{ "name": "/" }, { "name": "test"}],
+  "permissions": [
+    {
+      "user": "test",
+      "vhost": "/",
+      "configure": "",
+      "write": ".*",
+      "read": ".*"
+    },
+    {
+      "user": "test",
+      "vhost": "test",
+      "configure": "",
+      "write": ".*",
+      "read": ".*"
+    }
+  ],
+  "topic_permissions": [],
+  "parameters": [],
+  "global_parameters": [],
+  "policies": [],
+  "queues": [
+    {
+      "name": "queue-aaa",
+      "vhost": "test",
+      "durable": true,
+      "auto_delete": false,
+      "arguments": {
+        "x-queue-type": "classic"
+      }
+    },
+    {
+      "name": "queue-bbb",
+      "vhost": "test",
+      "durable": true,
+      "auto_delete": false,
+      "arguments": {
+        "x-queue-type": "classic"
+      }
+    }
+  ],
+  "exchanges": [
+    {
+      "name": "exchange1",
+      "vhost": "test",
+      "type": "direct",
+      "durable": true,
+      "auto_delete": false,
+      "internal": false,
+      "arguments": {}
+    }
+  ],
+  "bindings": [
+    {
+      "source": "exchange1",
+      "vhost": "test",
+      "destination": "queue-aaa",
+      "destination_type": "queue",
+      "routing_key": "AAA",
+      "arguments": {}
+    },
+    {
+      "source": "exchange1",
+      "vhost": "test",
+      "destination": "queue-bbb",
+      "destination_type": "queue",
+      "routing_key": "BBB",
+      "arguments": {}
+    }
+  ]
+}
